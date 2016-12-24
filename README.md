@@ -7,11 +7,12 @@ the language. Functions can be defined and evaluated.
 Language Features
 -----------------
 * An LL(1) top - down parser
-* Static environment scoping
+* Static environment scoping and variable binding.
 * Support for recursive definitions
 * Equality evaluation, and simple arithmetic, implemented using  
-  in built javascript `eval();` function
-  *Note:* There is a clear exploit here, sanitization should be added.
+  in built javascript `eval();`
+
+**Note:** There is a clear exploit here, sanitization should be added.
 
 Examples
 -------
@@ -21,7 +22,7 @@ Examples
   `{: hello | name | Hello {{{name}}}! :}`
 
 * A template invocation (function call) passing the string parameter *World*.
-  Evaluates here to the string, "Hello World!".\
+  Evaluates here to the string, "Hello World!".
 
   `{{ hello | World }}`
 
