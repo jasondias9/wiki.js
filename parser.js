@@ -1,3 +1,20 @@
+function scan(s, tokenset) {
+  if(!s) {
+    return;
+  }
+  for (var k in tokenset) {
+    if(tokenset[k]) {
+      var res = s.match(reg[k]);
+      if(res) {
+        return {
+          token : k,
+          tokenvalue : res[0]
+        }
+      }
+    }
+  }
+}
+
 function parse(s) {
   if(!s) {
     return "Invalid Input";
@@ -307,5 +324,8 @@ var TOKENSET = {
   DSTART : true,
   DEND : true,
   INNERDTEXT : true,
-  PIPE : true
+  PIPE : true,
+  TSTART: true,
+  DEND: true,
+  INNERTEXT: true
 }
