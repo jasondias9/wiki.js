@@ -10,22 +10,21 @@ Language Features
 * Static environment scoping
 * Support for recursive definitions
 * Equality evaluation, and simple arithmetic, implemented using  
-  in built javascript
-  ```javascript
-  eval();
-  ```
-  *Note:* There is a clear exploit here, sanitization should be added. 
-
-
+  in built javascript `eval();` function
+  *Note:* There is a clear exploit here, sanitization should be added.
 
 Examples
 -------
-* `{: hello | name | Hello {{{name}}}! :}`
-  A template (function) definition taking an arbitrary list of parameters,
-  and evaluating some body, here with reference to the parameter *name*.
-* `{{ hello | World }}`
-  A template invocation (function call) passing the string parameter *World*.
-  Evaluates here to the string, "Hello World!".
+* A template (function) definition taking an arbitrary list of parameters,
+  and evaluating some body, here with reference to the parameter **name**.  
+
+  `{: hello | name | Hello {{{name}}}! :}`
+
+* A template invocation (function call) passing the string parameter *World*.
+  Evaluates here to the string, "Hello World!".\
+
+  `{{ hello | World }}`
+
 
 
 The following was written as part of assignment tasks for COMP 302 at
