@@ -11,8 +11,7 @@ Language Features
 * Support for recursive definitions
 * Equality evaluation, and simple arithmetic, implemented using  
   in built javascript `eval();`
-
-**Note:** There is a clear exploit here, sanitization should be added.
+  **Note:** There is a clear exploit here, sanitization should be added.
 
 Examples
 -------
