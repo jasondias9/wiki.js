@@ -33,7 +33,6 @@ function processParams(ast, env, templateName) {
   }
 }
 
-//just returning the first one i find.... wrong
 function lookup_param(param, env) {
   for(var binding in env.bindings) {
     if(env.bindings[binding].params[param]) {
@@ -199,7 +198,6 @@ function evalIf(ast, env, result) {
       }
     } else if(ast.itext.templatedef && ast.itext.next) {
       processDefinition(ast.itext.templatedef, env);
-      //just used as a check to see if something is eventually returned after the def
       if(evalBody(ast.itext.next, env, "")) {
         return evalBody(ast.next, env, result)
       } else {

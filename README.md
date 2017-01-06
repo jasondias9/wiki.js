@@ -11,7 +11,8 @@ Language Features
 * Support for recursive definitions
 * Equality evaluation, and simple arithmetic, implemented using  
   in built javascript `eval();`
-  **Note:** There is a clear exploit here, sanitization should be added.
+    **Note:** There is a clear exploit here, sanitization should be added.
+* Functions are first class values passed around as thunks.
 
 Examples
 -------
@@ -25,7 +26,8 @@ Examples
 
   `{{ hello | World }}`
 
-
+Usage
+-----
 
 The following was written as part of assignment tasks for COMP 302 at
 McGill University.

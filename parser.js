@@ -240,7 +240,7 @@ function parseDText(s) {
       templateinvocation : null,
       templatedef : null,
       tparam : null,
-      next : parseDText(s.substr(t.tokenvalue.length))
+      next : null
     }
   } else if(t.token === "TSTART") {
       return {
@@ -249,7 +249,7 @@ function parseDText(s) {
         templateinvocation : parseTemplateInvocation(s),
         templatedef : null,
         tparam : null,
-        next : parseDText(s.substr(matchT(s)))
+        next : null
       }
   } else if(t.token === "DSTART") {
     return {
@@ -258,7 +258,7 @@ function parseDText(s) {
       templateinvocation : null,
       templatedef : parseTemplateDef(s),
       tparam : null,
-      next : parseDText(s.substr(matchT(s)))
+      next : null
     }
   } else if(t.token === "PSTART") {
     return {
@@ -267,7 +267,7 @@ function parseDText(s) {
       templateinvocation : null,
       templatedef : null,
       tparam : parseTParam(s.substr(t.tokenvalue.length)),
-      next : parseDText(s.substr((s.match(/^({{{.*?}}})/)[0]).length))
+      next : null
     }
   } else if(t.token === "PIPE") {
     return parseDText(s.substr(t.tokenvalue.length));
@@ -290,11 +290,13 @@ function parseTemplateDef(s) {
     return {
       name : "templatedef",
       dtext : parseDText(s.substr(t.tokenvalue.length))
+      dparams : null
     }
   } else if(t.token === "PIPE") {
       return {
         name : "templatedef",
-        dtext : parseDText(s.substr(t.tokenvalue.length))
+        dtext : parseDText(s.substr(t.tokenvalue.length)),
+        dparams : parseDText(s.substr(t.tokenvalue.length)),
       }
   }
 }
@@ -321,11 +323,4 @@ function parseTParam(s) {
 }
 
 var TOKENSET = {
-  DSTART : true,
-  DEND : true,
-  INNERDTEXT : true,
-  PIPE : true,
-  TSTART: true,
-  DEND: true,
-  INNERTEXT: true
 }
